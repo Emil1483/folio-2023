@@ -2,17 +2,14 @@ import * as THREE from 'three'
 import FloorShadowMaterial from '../Materials/FloorShadow.js'
 import MatcapMaterial from '../Materials/Matcap.js'
 
-export default class Materials
-{
-    constructor(_options)
-    {
+export default class Materials {
+    constructor(_options) {
         // Options
         this.resources = _options.resources
         this.debug = _options.debug
 
         // Debug
-        if(this.debug)
-        {
+        if (this.debug) {
             this.debugFolder = this.debug.addFolder('materials')
             this.debugFolder.open()
         }
@@ -25,8 +22,7 @@ export default class Materials
         this.setFloorShadow()
     }
 
-    setPures()
-    {
+    setPures() {
         // Setup
         this.pures = {}
         this.pures.items = {}
@@ -38,12 +34,11 @@ export default class Materials
         this.pures.items.yellow.name = 'pureYellow'
     }
 
-    setShades()
-    {
+    setShades() {
         // Setup
         this.shades = {}
         this.shades.items = {}
-        this.shades.indirectColor = '#d04500'
+        this.shades.indirectColor = '#0084d0'
 
         this.shades.uniforms = {
             uRevealProgress: 0,
@@ -141,18 +136,15 @@ export default class Materials
         // this.items.gold = this.shades.items.gold
 
         // Update materials uniforms
-        this.shades.updateMaterials = () =>
-        {
+        this.shades.updateMaterials = () => {
             this.shades.uniforms.uIndirectColor = new THREE.Color(this.shades.indirectColor)
 
             // Each uniform
-            for(const _uniformName in this.shades.uniforms)
-            {
+            for (const _uniformName in this.shades.uniforms) {
                 const _uniformValue = this.shades.uniforms[_uniformName]
 
                 // Each material
-                for(const _materialKey in this.shades.items)
-                {
+                for (const _materialKey in this.shades.items) {
                     const material = this.shades.items[_materialKey]
                     material.uniforms[_uniformName].value = _uniformValue
                 }
@@ -162,8 +154,7 @@ export default class Materials
         this.shades.updateMaterials()
 
         // Debug
-        if(this.debug)
-        {
+        if (this.debug) {
             const folder = this.debugFolder.addFolder('shades')
             folder.open()
 
@@ -177,26 +168,20 @@ export default class Materials
         }
     }
 
-    setFloorShadow()
-    {
+    setFloorShadow() {
         this.items.floorShadow = new FloorShadowMaterial()
         this.items.floorShadow.depthWrite = false
-        this.items.floorShadow.shadowColor = '#d04500'
+        this.items.floorShadow.shadowColor = '#004685'
         this.items.floorShadow.uniforms.uShadowColor.value = new THREE.Color(this.items.floorShadow.shadowColor)
         this.items.floorShadow.uniforms.uAlpha.value = 0
 
-        this.items.floorShadow.updateMaterials = () =>
-        {
+        this.items.floorShadow.updateMaterials = () => {
             this.items.floorShadow.uniforms.uShadowColor.value = new THREE.Color(this.items.floorShadow.shadowColor)
 
-            for(const _item of this.objects.items)
-            {
-                for(const _child of _item.container.children)
-                {
-                    if(_child.material instanceof THREE.ShaderMaterial)
-                    {
-                        if(_child.material.uniforms.uShadowColor)
-                        {
+            for (const _item of this.objects.items) {
+                for (const _child of _item.container.children) {
+                    if (_child.material instanceof THREE.ShaderMaterial) {
+                        if (_child.material.uniforms.uShadowColor) {
                             _child.material.uniforms.uShadowColor.value = new THREE.Color(this.items.floorShadow.shadowColor)
                         }
                     }
@@ -205,8 +190,7 @@ export default class Materials
         }
 
         // Debug
-        if(this.debug)
-        {
+        if (this.debug) {
             const folder = this.debugFolder.addFolder('floorShadow')
             folder.open()
 

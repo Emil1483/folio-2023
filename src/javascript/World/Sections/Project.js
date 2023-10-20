@@ -4,10 +4,8 @@ import ProjectBoardMaterial from '../../Materials/ProjectBoard.js'
 import TweenLite from 'gsap/TweenLite'
 import { Power4 } from 'gsap/EasePack'
 
-export default class Project
-{
-    constructor(_options)
-    {
+export default class Project {
+    constructor(_options) {
         // Options
         this.time = _options.time
         this.resources = _options.resources
@@ -34,21 +32,19 @@ export default class Project
         this.setFloor()
     }
 
-    setBoards()
-    {
+    setBoards() {
         // Set up
         this.boards = {}
         this.boards.items = []
         this.boards.xStart = - 5
         this.boards.xInter = 5
         this.boards.y = 5
-        this.boards.color = '#8e7161'
+        // this.boards.color = '#8e7161'
+        // this.boards.color = '#00ff00'
         this.boards.threeColor = new THREE.Color(this.boards.color)
 
-        if(this.debug)
-        {
-            this.debug.addColor(this.boards, 'color').name('boardColor').onChange(() =>
-            {
+        if (this.debug) {
+            this.debug.addColor(this.boards, 'color').name('boardColor').onChange(() => {
                 this.boards.threeColor.set(this.boards.color)
             })
         }
@@ -56,8 +52,7 @@ export default class Project
         // Create each board
         let i = 0
 
-        for(const _imageSource of this.imageSources)
-        {
+        for (const _imageSource of this.imageSources) {
             // Set up
             const board = {}
             board.x = this.x + this.boards.xStart + i * this.boards.xInter
@@ -76,8 +71,7 @@ export default class Project
 
             // Image load
             const image = new Image()
-            image.addEventListener('load', () =>
-            {
+            image.addEventListener('load', () => {
                 board.texture = new THREE.Texture(image)
                 board.texture.needsUpdate = true
                 board.texture.magFilter = THREE.NearestFilter
@@ -108,8 +102,7 @@ export default class Project
         }
     }
 
-    setFloor()
-    {
+    setFloor() {
         this.floor = {}
 
         this.floor.x = 0
@@ -132,7 +125,7 @@ export default class Project
         this.floor.geometry = this.geometries.floor
 
         // Material
-        this.floor.material =  new THREE.MeshBasicMaterial({ transparent: true, depthWrite: false, alphaMap: this.floor.texture })
+        this.floor.material = new THREE.MeshBasicMaterial({ transparent: true, depthWrite: false, alphaMap: this.floor.texture })
 
         // Mesh
         this.floor.mesh = new THREE.Mesh(this.floor.geometry, this.floor.material)
@@ -140,17 +133,14 @@ export default class Project
         this.floor.container.add(this.floor.mesh)
 
         // Distinctions
-        if(this.distinctions)
-        {
-            for(const _distinction of this.distinctions)
-            {
+        if (this.distinctions) {
+            for (const _distinction of this.distinctions) {
                 let base = null
                 let collision = null
                 let shadowSizeX = null
                 let shadowSizeY = null
 
-                switch(_distinction.type)
-                {
+                switch (_distinction.type) {
                     case 'awwwards':
                         base = this.resources.items.projectsDistinctionsAwwwardsBase.scene
                         collision = this.resources.items.projectsDistinctionsAwwwardsCollision.scene
@@ -191,8 +181,7 @@ export default class Project
             position: new THREE.Vector2(this.x + this.link.x, this.y + this.floor.y + this.link.y),
             halfExtents: new THREE.Vector2(this.link.halfExtents.x, this.link.halfExtents.y)
         })
-        this.floor.area.on('interact', () =>
-        {
+        this.floor.area.on('interact', () => {
             window.open(this.link.href, '_blank')
         })
 

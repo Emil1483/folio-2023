@@ -3,8 +3,7 @@ import * as THREE from 'three'
 import shaderFragment from '../../shaders/projectBoard/fragment.glsl'
 import shaderVertex from '../../shaders/projectBoard/vertex.glsl'
 
-export default function()
-{
+export default function () {
     const uniforms = {
         uTexture: { value: null },
         uTextureAlpha: { value: null },

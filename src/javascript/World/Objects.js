@@ -1,6 +1,8 @@
 import * as THREE from 'three'
 import { BufferGeometryUtils } from 'three/examples/jsm/utils/BufferGeometryUtils.js'
 
+import ProjectBoardMaterial from '../Materials/ProjectBoard.js'
+
 export default class Objects {
     constructor(_options) {
         // Options
@@ -24,8 +26,6 @@ export default class Objects {
     }
 
     setParsers() {
-        console.log("Set Parsers")
-
         this.parsers = {}
 
         this.parsers.items = [
@@ -101,7 +101,31 @@ export default class Objects {
 
                     return mesh
                 }
-            }
+            },
+
+            // Texture
+            {
+                regex: /^texture([a-z]+)_?[0-9]{0,3}?/i,
+                apply: (_mesh, _options) => {
+                    const match = _mesh.name.match(/^texture([a-z]+)_?[0-9]{0,3}?/i)
+                    const textureName = match[1].toLowerCase()
+                    const texture = this.resources.items[`${textureName}Texture`]
+
+                    if (!texture) {
+                        console.error(`Could not find texture "${textureName}"`)
+                    }
+
+                    const material = new ProjectBoardMaterial()
+                    material.uniforms.uColor.value = new THREE.Color()
+                    material.uniforms.uTextureAlpha.value = 1
+                    material.uniforms.uTexture.value = texture
+
+                    const mesh = _mesh.clone()
+                    mesh.material = material
+
+                    return mesh
+                }
+            },
         ]
 
         // Default

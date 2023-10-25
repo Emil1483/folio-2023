@@ -21,8 +21,6 @@ export default class CrossroadsSection {
     }
 
     setStatic() {
-        console.log(this.objects)
-        console.log(this.resources.items.crossroadsStaticBase.scene)
         this.objects.add({
             base: this.resources.items.crossroadsStaticBase.scene,
             collision: this.resources.items.crossroadsStaticCollision.scene,

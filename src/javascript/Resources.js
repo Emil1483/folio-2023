@@ -68,12 +68,6 @@ import introI2BaseSource from '../models/intro/i2/base.glb'
 import introKCollisionSource from '../models/intro/k/collision.glb'
 import introKBaseSource from '../models/intro/k/base.glb'
 
-import introCreativeBaseSource from '../models/intro/creative/base.glb'
-import introCreativeCollisionSource from '../models/intro/creative/collision.glb'
-
-import introDevBaseSource from '../models/intro/dev/base.glb'
-import introDevCollisionSource from '../models/intro/dev/collision.glb'
-
 // Crossroads
 import crossroadsStaticFloorShadowSource from '../models/crossroads/static/floorShadow.png'
 import crossroadsStaticBaseSource from '../models/crossroads/static/base.glb'
@@ -295,12 +289,6 @@ export default class Resources extends EventEmitter {
 
             { name: 'introKBase', source: introKBaseSource },
             { name: 'introKCollision', source: introKCollisionSource },
-
-            { name: 'introCreativeBase', source: introCreativeBaseSource },
-            { name: 'introCreativeCollision', source: introCreativeCollisionSource },
-
-            { name: 'introDevBase', source: introDevBaseSource },
-            { name: 'introDevCollision', source: introDevCollisionSource },
 
             // Intro
             { name: 'crossroadsStaticBase', source: crossroadsStaticBaseSource },

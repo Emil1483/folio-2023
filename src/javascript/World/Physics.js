@@ -646,7 +646,8 @@ export default class Physics {
                     shapeGeometry = new CANNON.Cylinder(mesh.scale.x, mesh.scale.x, mesh.scale.z, 8)
                 }
                 else if (shape === 'box') {
-                    const halfExtents = new CANNON.Vec3(mesh.scale.x * 0.5, mesh.scale.y * 0.5, mesh.scale.z * 0.5)
+                    const scale = _options.collisionScale || 0.5
+                    const halfExtents = new CANNON.Vec3(mesh.scale.x * scale, mesh.scale.y * scale, mesh.scale.z * scale)
                     shapeGeometry = new CANNON.Box(halfExtents)
                 }
                 else if (shape === 'sphere') {

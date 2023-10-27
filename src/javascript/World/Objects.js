@@ -303,6 +303,7 @@ export default class Objects {
             offset,
             rotation,
             mass: _options.mass,
+            collisionScale: _options.collisionScale,
             sleep
         })
 

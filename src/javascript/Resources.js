@@ -35,29 +35,38 @@ import introInstructionsOtherSource from '../models/intro/instructions/other.png
 import introArrowKeyBaseSource from '../models/intro/arrowKey/base.glb'
 import introArrowKeyCollisionSource from '../models/intro/arrowKey/collision.glb'
 
-import introBBaseSource from '../models/intro/b/base.glb'
-import introBCollisionSource from '../models/intro/b/collision.glb'
-
-import introRBaseSource from '../models/intro/r/base.glb'
-import introRCollisionSource from '../models/intro/r/collision.glb'
-
-import introUBaseSource from '../models/intro/u/base.glb'
-import introUCollisionSource from '../models/intro/u/collision.glb'
-
-import introNBaseSource from '../models/intro/n/base.glb'
-import introNCollisionSource from '../models/intro/n/collision.glb'
-
-import introOBaseSource from '../models/intro/o/base.glb'
-import introOCollisionSource from '../models/intro/o/collision.glb'
-
-import introSBaseSource from '../models/intro/s/base.glb'
-import introSCollisionSource from '../models/intro/s/collision.glb'
-
-import introIBaseSource from '../models/intro/i/base.glb'
-import introICollisionSource from '../models/intro/i/collision.glb'
+import introEBaseSource from '../models/intro/e/base.glb'
+import introECollisionSource from '../models/intro/e/collision.glb'
 
 import introMBaseSource from '../models/intro/m/base.glb'
 import introMCollisionSource from '../models/intro/m/collision.glb'
+
+import introICollisionSource from '../models/intro/i/collision.glb'
+import introIBaseSource from '../models/intro/i/base.glb'
+
+import introLCollisionSource from '../models/intro/l/collision.glb'
+import introLBaseSource from '../models/intro/l/base.glb'
+
+import introDCollisionSource from '../models/intro/d/collision.glb'
+import introDBaseSource from '../models/intro/d/base.glb'
+
+import introJCollisionSource from '../models/intro/j/collision.glb'
+import introJBaseSource from '../models/intro/j/base.glb'
+
+import introUCollisionSource from '../models/intro/u/collision.glb'
+import introUBaseSource from '../models/intro/u/base.glb'
+
+import introPCollisionSource from '../models/intro/p/collision.glb'
+import introPBaseSource from '../models/intro/p/base.glb'
+
+import introVCollisionSource from '../models/intro/v/collision.glb'
+import introVBaseSource from '../models/intro/v/base.glb'
+
+import introI2CollisionSource from '../models/intro/i2/collision.glb'
+import introI2BaseSource from '../models/intro/i2/base.glb'
+
+import introKCollisionSource from '../models/intro/k/collision.glb'
+import introKBaseSource from '../models/intro/k/base.glb'
 
 import introCreativeBaseSource from '../models/intro/creative/base.glb'
 import introCreativeCollisionSource from '../models/intro/creative/collision.glb'
@@ -254,29 +263,38 @@ export default class Resources extends EventEmitter {
             { name: 'introArrowKeyBase', source: introArrowKeyBaseSource },
             { name: 'introArrowKeyCollision', source: introArrowKeyCollisionSource },
 
-            { name: 'introBBase', source: introBBaseSource },
-            { name: 'introBCollision', source: introBCollisionSource },
+            { name: 'introEBase', source: introEBaseSource },
+            { name: 'introECollision', source: introECollisionSource },
 
-            { name: 'introRBase', source: introRBaseSource },
-            { name: 'introRCollision', source: introRCollisionSource },
-
-            { name: 'introUBase', source: introUBaseSource },
-            { name: 'introUCollision', source: introUCollisionSource },
-
-            { name: 'introNBase', source: introNBaseSource },
-            { name: 'introNCollision', source: introNCollisionSource },
-
-            { name: 'introOBase', source: introOBaseSource },
-            { name: 'introOCollision', source: introOCollisionSource },
-
-            { name: 'introSBase', source: introSBaseSource },
-            { name: 'introSCollision', source: introSCollisionSource },
+            { name: 'introMBase', source: introMBaseSource },
+            { name: 'introMCollision', source: introMCollisionSource },
 
             { name: 'introIBase', source: introIBaseSource },
             { name: 'introICollision', source: introICollisionSource },
 
-            { name: 'introMBase', source: introMBaseSource },
-            { name: 'introMCollision', source: introMCollisionSource },
+            { name: 'introLBase', source: introLBaseSource },
+            { name: 'introLCollision', source: introLCollisionSource },
+
+            { name: 'introDBase', source: introDBaseSource },
+            { name: 'introDCollision', source: introDCollisionSource },
+
+            { name: 'introJBase', source: introJBaseSource },
+            { name: 'introJCollision', source: introJCollisionSource },
+
+            { name: 'introUBase', source: introUBaseSource },
+            { name: 'introUCollision', source: introUCollisionSource },
+
+            { name: 'introPBase', source: introPBaseSource },
+            { name: 'introPCollision', source: introPCollisionSource },
+
+            { name: 'introVBase', source: introVBaseSource },
+            { name: 'introVCollision', source: introVCollisionSource },
+
+            { name: 'introI2Base', source: introI2BaseSource },
+            { name: 'introI2Collision', source: introI2CollisionSource },
+
+            { name: 'introKBase', source: introKBaseSource },
+            { name: 'introKCollision', source: introKCollisionSource },
 
             { name: 'introCreativeBase', source: introCreativeBaseSource },
             { name: 'introCreativeCollision', source: introCreativeCollisionSource },

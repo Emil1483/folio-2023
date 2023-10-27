@@ -118,10 +118,10 @@ import informationStaticBaseSource from '../models/information/static/base.glb'
 import informationStaticCollisionSource from '../models/information/static/collision.glb'
 import informationStaticFloorShadowSource from '../models/information/static/floorShadow.png'
 
-import informationBaguetteBaseSource from '../models/information/baguette/base.glb'
-import informationBaguetteCollisionSource from '../models/information/baguette/collision.glb'
+import informationShipBaseSource from '../models/information/ship/base.glb'
+import informationShipCollisionSource from '../models/information/ship/collision.glb'
 
-import informationContactTwitterLabelSource from '../models/information/static/contactTwitterLabel.png'
+import informationContactGooglePlayLabelSource from '../models/information/static/contactGooglePlayLabel.png'
 import informationContactGithubLabelSource from '../models/information/static/contactGithubLabel.png'
 import informationContactLinkedinLabelSource from '../models/information/static/contactLinkedinLabel.png'
 import informationContactMailLabelSource from '../models/information/static/contactMailLabel.png'
@@ -340,10 +340,10 @@ export default class Resources extends EventEmitter {
             { name: 'informationStaticCollision', source: informationStaticCollisionSource },
             { name: 'informationStaticFloorShadow', source: informationStaticFloorShadowSource, type: 'texture' },
 
-            { name: 'informationBaguetteBase', source: informationBaguetteBaseSource },
-            { name: 'informationBaguetteCollision', source: informationBaguetteCollisionSource },
+            { name: 'informationShipBase', source: informationShipBaseSource },
+            { name: 'informationShipCollision', source: informationShipCollisionSource },
 
-            { name: 'informationContactTwitterLabel', source: informationContactTwitterLabelSource, type: 'texture' },
+            { name: 'informationContactGooglePlayLabel', source: informationContactGooglePlayLabelSource, type: 'texture' },
             { name: 'informationContactGithubLabel', source: informationContactGithubLabelSource, type: 'texture' },
             { name: 'informationContactLinkedinLabel', source: informationContactLinkedinLabelSource, type: 'texture' },
             { name: 'informationContactMailLabel', source: informationContactMailLabelSource, type: 'texture' },

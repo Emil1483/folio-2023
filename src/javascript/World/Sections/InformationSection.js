@@ -1,9 +1,7 @@
 import * as THREE from 'three'
 
-export default class InformationSection
-{
-    constructor(_options)
-    {
+export default class InformationSection {
+    constructor(_options) {
         // Options
         this.time = _options.time
         this.resources = _options.resources
@@ -19,14 +17,13 @@ export default class InformationSection
         this.container.matrixAutoUpdate = false
 
         this.setStatic()
-        this.setBaguettes()
+        this.setShips()
         this.setLinks()
         this.setActivities()
         this.setTiles()
     }
 
-    setStatic()
-    {
+    setStatic() {
         this.objects.add({
             base: this.resources.items.informationStaticBase.scene,
             collision: this.resources.items.informationStaticCollision.scene,
@@ -36,39 +33,25 @@ export default class InformationSection
         })
     }
 
-    setBaguettes()
-    {
-        this.baguettes = {}
+    setShips() {
+        this.ships = {}
 
-        this.baguettes.x = - 4
-        this.baguettes.y = 6
+        this.ships.x = - 4
+        this.ships.y = 6
 
-        this.baguettes.a = this.objects.add({
-            base: this.resources.items.informationBaguetteBase.scene,
-            collision: this.resources.items.informationBaguetteCollision.scene,
-            offset: new THREE.Vector3(this.x + this.baguettes.x - 0.56, this.y + this.baguettes.y - 0.666, 0.2),
-            rotation: new THREE.Euler(0, 0, - Math.PI * 37 / 180),
+        this.ships.a = this.objects.add({
+            base: this.resources.items.informationShipBase.scene,
+            collision: this.resources.items.informationShipCollision.scene,
+            offset: new THREE.Vector3(this.x + this.ships.x - 1.8, this.y + this.ships.y - 1.666, 0.2),
+            rotation: new THREE.Euler(0, 0, Math.PI * 67 / 180),
             duplicated: true,
-            shadow: { sizeX: 0.6, sizeY: 3.5, offsetZ: - 0.15, alpha: 0.35 },
-            mass: 1.5,
-            // soundName: 'woodHit'
-        })
-
-        this.baguettes.b = this.objects.add({
-            base: this.resources.items.informationBaguetteBase.scene,
-            collision: this.resources.items.informationBaguetteCollision.scene,
-            offset: new THREE.Vector3(this.x + this.baguettes.x - 0.8, this.y + this.baguettes.y - 2, 0.5),
-            rotation: new THREE.Euler(0, - 0.5, Math.PI * 60 / 180),
-            duplicated: true,
-            shadow: { sizeX: 0.6, sizeY: 3.5, offsetZ: - 0.15, alpha: 0.35 },
-            mass: 1.5,
-            sleep: false,
-            // soundName: 'woodHit'
+            shadow: { sizeX: 3.5, sizeY: 4.5, offsetZ: - 1.2, alpha: 0.5 },
+            mass: 3.0,
+            soundName: 'woodHit'
         })
     }
 
-    setLinks()
-    {
+    setLinks() {
         // Set up
         this.links = {}
         this.links.x = 1.95
@@ -89,27 +72,26 @@ export default class InformationSection
         // Options
         this.links.options = [
             {
-                href: 'https://twitter.com/bruno_simon/',
-                labelTexture: this.resources.items.informationContactTwitterLabelTexture
+                href: 'https://play.google.com/store/apps/developer?id=Emil+Djupvik&hl=en_US&gl=US&pli=1/',
+                labelTexture: this.resources.items.informationContactGooglePlayLabelTexture
             },
             {
-                href: 'https://github.com/brunosimon/',
+                href: 'https://github.com/Emil1483/',
                 labelTexture: this.resources.items.informationContactGithubLabelTexture
             },
             {
-                href: 'https://www.linkedin.com/in/simonbruno77/',
+                href: 'https://www.linkedin.com/in/emil-djupvik/',
                 labelTexture: this.resources.items.informationContactLinkedinLabelTexture
             },
             {
-                href: 'mailto:simon.bruno.77@gmail.com',
+                href: 'mailto:emil@djupvik.dev',
                 labelTexture: this.resources.items.informationContactMailLabelTexture
             }
         ]
 
         // Create each link
         let i = 0
-        for(const _option of this.links.options)
-        {
+        for (const _option of this.links.options) {
             // Set up
             const item = {}
             item.x = this.x + this.links.x + this.links.distanceBetween * i
@@ -121,8 +103,7 @@ export default class InformationSection
                 position: new THREE.Vector2(item.x, item.y),
                 halfExtents: new THREE.Vector2(this.links.halfExtents.x, this.links.halfExtents.y)
             })
-            item.area.on('interact', () =>
-            {
+            item.area.on('interact', () => {
                 window.open(_option.href, '_blank')
             })
 
@@ -146,8 +127,7 @@ export default class InformationSection
         }
     }
 
-    setActivities()
-    {
+    setActivities() {
         // Set up
         this.activities = {}
         this.activities.x = this.x + 0
@@ -174,8 +154,7 @@ export default class InformationSection
         this.container.add(this.activities.mesh)
     }
 
-    setTiles()
-    {
+    setTiles() {
         this.tiles.add({
             start: new THREE.Vector2(this.x - 1.2, this.y + 13),
             delta: new THREE.Vector2(0, - 20)

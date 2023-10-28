@@ -42,6 +42,7 @@ export default class InformationSection {
         this.ships.a = this.objects.add({
             base: this.resources.items.informationShipBase.scene,
             collision: this.resources.items.informationShipCollision.scene,
+            collisionScale: 0.4,
             offset: new THREE.Vector3(this.x + this.ships.x - 1.8, this.y + this.ships.y - 1.666, 0.2),
             rotation: new THREE.Euler(0, 0, Math.PI * 67 / 180),
             duplicated: true,

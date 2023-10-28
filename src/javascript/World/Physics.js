@@ -495,7 +495,7 @@ export default class Physics {
 
             // Accelerate Down
             else if (this.controls.actions.down) {
-                if (this.car.speed < controlsAcceleratinMaxSpeed || this.car.goingForward) {
+                if (this.car.speed > -controlsAcceleratinMaxSpeed || this.car.goingForward) {
                     this.car.accelerating = - accelerateStrength
                 }
                 else {

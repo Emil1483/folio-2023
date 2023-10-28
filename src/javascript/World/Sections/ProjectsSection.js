@@ -2,10 +2,8 @@ import * as THREE from 'three'
 import Project from './Project'
 import TweenLite from 'gsap/TweenLite'
 
-import projectsThreejsJourneySlideASources from '../../../models/projects/threejsJourney/slideA.jpg'
-import projectsThreejsJourneySlideBSources from '../../../models/projects/threejsJourney/slideB.jpg'
-import projectsThreejsJourneySlideCSources from '../../../models/projects/threejsJourney/slideC.jpg'
-import projectsThreejsJourneySlideDSources from '../../../models/projects/threejsJourney/slideD.jpg'
+import projectsOppkjoringSlideASources from '../../../models/projects/oppkjoring/slideA.jpg'
+import projectsOppkjoringSlideBSources from '../../../models/projects/oppkjoring/slideB.jpg'
 
 import projectsMadboxSlideASources from '../../../models/projects/madbox/slideA.jpg'
 import projectsMadboxSlideBSources from '../../../models/projects/madbox/slideB.jpg'
@@ -44,10 +42,8 @@ import projectsKepplerSlideASources from '../../../models/projects/keppler/slide
 import projectsKepplerSlideBSources from '../../../models/projects/keppler/slideB.jpg'
 import projectsKepplerSlideCSources from '../../../models/projects/keppler/slideC.jpg'
 
-export default class ProjectsSection
-{
-    constructor(_options)
-    {
+export default class ProjectsSection {
+    constructor(_options) {
         // Options
         this.time = _options.time
         this.resources = _options.resources
@@ -62,8 +58,7 @@ export default class ProjectsSection
         this.y = _options.y
 
         // Debug
-        if(this.debug)
-        {
+        if (this.debug) {
             this.debugFolder = this.debug.addFolder('projects')
             this.debugFolder.open()
         }
@@ -85,20 +80,17 @@ export default class ProjectsSection
         this.setZone()
 
         // Add all project from the list
-        for(const _options of this.list)
-        {
+        for (const _options of this.list) {
             this.add(_options)
         }
     }
 
-    setGeometries()
-    {
+    setGeometries() {
         this.geometries = {}
         this.geometries.floor = new THREE.PlaneBufferGeometry(16, 8)
     }
 
-    setMeshes()
-    {
+    setMeshes() {
         this.meshes = {}
 
         // this.meshes.boardStructure = this.objects.getConvertedMesh(this.resources.items.projectsBoardStructure.scene.children, { floorShadowTexture: this.resources.items.projectsBoardStructureFloorShadowTexture })
@@ -109,43 +101,36 @@ export default class ProjectsSection
         this.meshes.areaLabel.matrixAutoUpdate = false
     }
 
-    setList()
-    {
+    setList() {
         this.list = [
             {
-                name: 'Three.js Journey',
+                name: 'oppkjoring.com',
                 imageSources:
-                [
-                    projectsThreejsJourneySlideASources,
-                    projectsThreejsJourneySlideBSources,
-                    projectsThreejsJourneySlideCSources,
-                    projectsThreejsJourneySlideDSources
-                ],
-                floorTexture: this.resources.items.projectsThreejsJourneyFloorTexture,
+                    [
+                        projectsOppkjoringSlideASources,
+                        projectsOppkjoringSlideBSources,
+                    ],
+                floorTexture: this.resources.items.projectsOppkjoringFloorTexture,
                 link:
                 {
-                    href: 'https://threejs-journey.com?c=p3',
+                    href: 'https://www.oppkjoring.com/',
                     x: - 4.8,
-                    y: - 3,
+                    y: - 6,
                     halfExtents:
                     {
                         x: 3.2,
                         y: 1.5
                     }
                 },
-                distinctions:
-                [
-                    { type: 'fwa', x: 3.95, y: 4.15 }
-                ]
             },
             {
                 name: 'Madbox',
                 imageSources:
-                [
-                    projectsMadboxSlideASources,
-                    projectsMadboxSlideBSources,
-                    projectsMadboxSlideCSources
-                ],
+                    [
+                        projectsMadboxSlideASources,
+                        projectsMadboxSlideBSources,
+                        projectsMadboxSlideCSources
+                    ],
                 floorTexture: this.resources.items.projectsMadboxFloorTexture,
                 link:
                 {
@@ -159,19 +144,19 @@ export default class ProjectsSection
                     }
                 },
                 distinctions:
-                [
-                    { type: 'awwwards', x: 3.95, y: 4.15 },
-                    { type: 'fwa', x: 5.6, y: 4.15 }
-                ]
+                    [
+                        { type: 'awwwards', x: 3.95, y: 4.15 },
+                        { type: 'fwa', x: 5.6, y: 4.15 }
+                    ]
             },
             {
                 name: 'Scout',
                 imageSources:
-                [
-                    projectsScoutSlideASources,
-                    projectsScoutSlideBSources,
-                    projectsScoutSlideCSources
-                ],
+                    [
+                        projectsScoutSlideASources,
+                        projectsScoutSlideBSources,
+                        projectsScoutSlideCSources
+                    ],
                 floorTexture: this.resources.items.projectsScoutFloorTexture,
                 link:
                 {
@@ -185,17 +170,17 @@ export default class ProjectsSection
                     }
                 },
                 distinctions:
-                [
-                ]
+                    [
+                    ]
             },
             {
                 name: 'Chartogne Taillet',
                 imageSources:
-                [
-                    projectsChartogneSlideASources,
-                    projectsChartogneSlideBSources,
-                    projectsChartogneSlideCSources
-                ],
+                    [
+                        projectsChartogneSlideASources,
+                        projectsChartogneSlideBSources,
+                        projectsChartogneSlideCSources
+                    ],
                 floorTexture: this.resources.items.projectsChartogneFloorTexture,
                 link:
                 {
@@ -209,20 +194,20 @@ export default class ProjectsSection
                     }
                 },
                 distinctions:
-                [
-                    { type: 'awwwards', x: 3.95, y: 4.15 },
-                    { type: 'fwa', x: 5.6, y: 4.15 },
-                    { type: 'cssda', x: 7.2, y: 4.15 }
-                ]
+                    [
+                        { type: 'awwwards', x: 3.95, y: 4.15 },
+                        { type: 'fwa', x: 5.6, y: 4.15 },
+                        { type: 'cssda', x: 7.2, y: 4.15 }
+                    ]
             },
             {
                 name: 'Zenly',
                 imageSources:
-                [
-                    projectsZenlySlideASources,
-                    projectsZenlySlideBSources,
-                    projectsZenlySlideCSources
-                ],
+                    [
+                        projectsZenlySlideASources,
+                        projectsZenlySlideBSources,
+                        projectsZenlySlideCSources
+                    ],
                 floorTexture: this.resources.items.projectsZenlyFloorTexture,
                 link:
                 {
@@ -236,20 +221,20 @@ export default class ProjectsSection
                     }
                 },
                 distinctions:
-                [
-                    { type: 'awwwards', x: 3.95, y: 4.15 },
-                    { type: 'fwa', x: 5.6, y: 4.15 },
-                    { type: 'cssda', x: 7.2, y: 4.15 }
-                ]
+                    [
+                        { type: 'awwwards', x: 3.95, y: 4.15 },
+                        { type: 'fwa', x: 5.6, y: 4.15 },
+                        { type: 'cssda', x: 7.2, y: 4.15 }
+                    ]
             },
             {
                 name: 'priorHoldings',
                 imageSources:
-                [
-                    projectsPriorHoldingsSlideASources,
-                    projectsPriorHoldingsSlideBSources,
-                    projectsPriorHoldingsSlideCSources
-                ],
+                    [
+                        projectsPriorHoldingsSlideASources,
+                        projectsPriorHoldingsSlideBSources,
+                        projectsPriorHoldingsSlideCSources
+                    ],
                 floorTexture: this.resources.items.projectsPriorHoldingsFloorTexture,
                 link:
                 {
@@ -263,20 +248,20 @@ export default class ProjectsSection
                     }
                 },
                 distinctions:
-                [
-                    { type: 'awwwards', x: 3.95, y: 4.15 },
-                    { type: 'fwa', x: 5.6, y: 4.15 },
-                    { type: 'cssda', x: 7.2, y: 4.15 }
-                ]
+                    [
+                        { type: 'awwwards', x: 3.95, y: 4.15 },
+                        { type: 'fwa', x: 5.6, y: 4.15 },
+                        { type: 'cssda', x: 7.2, y: 4.15 }
+                    ]
             },
             {
                 name: 'orano',
                 imageSources:
-                [
-                    projectsOranoSlideASources,
-                    projectsOranoSlideBSources,
-                    projectsOranoSlideCSources
-                ],
+                    [
+                        projectsOranoSlideASources,
+                        projectsOranoSlideBSources,
+                        projectsOranoSlideCSources
+                    ],
                 floorTexture: this.resources.items.projectsOranoFloorTexture,
                 link:
                 {
@@ -290,20 +275,20 @@ export default class ProjectsSection
                     }
                 },
                 distinctions:
-                [
-                    { type: 'awwwards', x: 3.95, y: 4.15 },
-                    { type: 'fwa', x: 5.6, y: 4.15 },
-                    { type: 'cssda', x: 7.2, y: 4.15 }
-                ]
+                    [
+                        { type: 'awwwards', x: 3.95, y: 4.15 },
+                        { type: 'fwa', x: 5.6, y: 4.15 },
+                        { type: 'cssda', x: 7.2, y: 4.15 }
+                    ]
             },
             {
                 name: 'citrixRedbull',
                 imageSources:
-                [
-                    projectsCitrixRedbullSlideASources,
-                    projectsCitrixRedbullSlideBSources,
-                    projectsCitrixRedbullSlideCSources
-                ],
+                    [
+                        projectsCitrixRedbullSlideASources,
+                        projectsCitrixRedbullSlideBSources,
+                        projectsCitrixRedbullSlideCSources
+                    ],
                 floorTexture: this.resources.items.projectsCitrixRedbullFloorTexture,
                 link:
                 {
@@ -317,11 +302,11 @@ export default class ProjectsSection
                     }
                 },
                 distinctions:
-                [
-                    { type: 'awwwards', x: 3.95, y: 4.15 },
-                    { type: 'fwa', x: 5.6, y: 4.15 },
-                    { type: 'cssda', x: 7.2, y: 4.15 }
-                ]
+                    [
+                        { type: 'awwwards', x: 3.95, y: 4.15 },
+                        { type: 'fwa', x: 5.6, y: 4.15 },
+                        { type: 'cssda', x: 7.2, y: 4.15 }
+                    ]
             },
             // {
             //     name: 'gleecChat',
@@ -354,11 +339,11 @@ export default class ProjectsSection
             {
                 name: 'keppler',
                 imageSources:
-                [
-                    projectsKepplerSlideASources,
-                    projectsKepplerSlideBSources,
-                    projectsKepplerSlideCSources
-                ],
+                    [
+                        projectsKepplerSlideASources,
+                        projectsKepplerSlideBSources,
+                        projectsKepplerSlideCSources
+                    ],
                 floorTexture: this.resources.items.projectsKepplerFloorTexture,
                 link:
                 {
@@ -376,8 +361,7 @@ export default class ProjectsSection
         ]
     }
 
-    setZone()
-    {
+    setZone() {
         const totalWidth = this.list.length * (this.interDistance / 2)
 
         const zone = this.zones.add({
@@ -386,27 +370,23 @@ export default class ProjectsSection
             data: { cameraAngle: 'projects' }
         })
 
-        zone.on('in', (_data) =>
-        {
+        zone.on('in', (_data) => {
             this.camera.angle.set(_data.cameraAngle)
             TweenLite.to(this.passes.horizontalBlurPass.material.uniforms.uStrength.value, 2, { x: 0 })
             TweenLite.to(this.passes.verticalBlurPass.material.uniforms.uStrength.value, 2, { y: 0 })
         })
 
-        zone.on('out', () =>
-        {
+        zone.on('out', () => {
             this.camera.angle.set('default')
             TweenLite.to(this.passes.horizontalBlurPass.material.uniforms.uStrength.value, 2, { x: this.passes.horizontalBlurPass.strength })
             TweenLite.to(this.passes.verticalBlurPass.material.uniforms.uStrength.value, 2, { y: this.passes.verticalBlurPass.strength })
         })
     }
 
-    add(_options)
-    {
+    add(_options) {
         const x = this.x + this.items.length * this.interDistance
         let y = this.y
-        if(this.items.length > 0)
-        {
+        if (this.items.length > 0) {
             y += (Math.random() - 0.5) * this.positionRandomess
         }
 
@@ -427,8 +407,7 @@ export default class ProjectsSection
         this.container.add(project.container)
 
         // Add tiles
-        if(this.items.length >= 1)
-        {
+        if (this.items.length >= 1) {
             const previousProject = this.items[this.items.length - 1]
             const start = new THREE.Vector2(previousProject.x + this.projectHalfWidth, previousProject.y)
             const end = new THREE.Vector2(project.x - this.projectHalfWidth, project.y)

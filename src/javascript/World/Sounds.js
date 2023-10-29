@@ -34,14 +34,17 @@ import horn1Sound from '../../sounds/horns/horn-1.mp3'
 import horn2Sound from '../../sounds/horns/horn-2.mp3'
 import horn3Sound from '../../sounds/horns/horn-3.mp3'
 
-export default class Sounds {
-    constructor(_options) {
+export default class Sounds
+{
+    constructor(_options)
+    {
         // Options
         this.time = _options.time
         this.debug = _options.debug
 
         // Debug
-        if (this.debug) {
+        if(this.debug)
+        {
             this.debugFolder = this.debug.addFolder('sounds')
             // this.debugFolder.open()
         }
@@ -55,7 +58,8 @@ export default class Sounds {
         this.setEngine()
     }
 
-    setSettings() {
+    setSettings()
+    {
         this.settings = [
             {
                 name: 'reveal',
@@ -180,60 +184,74 @@ export default class Sounds {
             }
         ]
 
-        for (const _settings of this.settings) {
+        for(const _settings of this.settings)
+        {
             this.add(_settings)
         }
     }
 
-    setMasterVolume() {
+    setMasterVolume()
+    {
         // Set up
         this.masterVolume = 0.5
         Howler.volume(this.masterVolume)
 
-        window.requestAnimationFrame(() => {
+        window.requestAnimationFrame(() =>
+        {
             Howler.volume(this.masterVolume)
         })
 
         // Debug
-        if (this.debug) {
-            this.debugFolder.add(this, 'masterVolume').step(0.001).min(0).max(1).onChange(() => {
+        if(this.debug)
+        {
+            this.debugFolder.add(this, 'masterVolume').step(0.001).min(0).max(1).onChange(() =>
+            {
                 Howler.volume(this.masterVolume)
             })
         }
     }
 
-    setMute() {
+    setMute()
+    {
         // Set up
         this.muted = typeof this.debug !== 'undefined'
         Howler.mute(this.muted)
 
         // M Key
-        window.addEventListener('keydown', (_event) => {
-            if (_event.key === 'm') {
+        window.addEventListener('keydown', (_event) =>
+        {
+            if(_event.key === 'm')
+            {
                 this.muted = !this.muted
                 Howler.mute(this.muted)
             }
         })
 
         // Tab focus / blur
-        document.addEventListener('visibilitychange', () => {
-            if (document.hidden) {
+        document.addEventListener('visibilitychange', () =>
+        {
+            if(document.hidden)
+            {
                 Howler.mute(true)
             }
-            else {
+            else
+            {
                 Howler.mute(this.muted)
             }
         })
 
         // Debug
-        if (this.debug) {
-            this.debugFolder.add(this, 'muted').listen().onChange(() => {
+        if(this.debug)
+        {
+            this.debugFolder.add(this, 'muted').listen().onChange(() =>
+            {
                 Howler.mute(this.muted)
             })
         }
     }
 
-    setEngine() {
+    setEngine()
+    {
         // Set up
         this.engine = {}
 
@@ -263,7 +281,8 @@ export default class Sounds {
         this.engine.sound.play()
 
         // Time tick
-        this.time.on('tick', () => {
+        this.time.on('tick', () =>
+        {
             let progress = Math.abs(this.engine.speed) * this.engine.speedMultiplier + Math.max(this.engine.acceleration, 0) * this.engine.accelerationMultiplier
             progress = Math.min(Math.max(progress, 0), 1)
 
@@ -279,7 +298,8 @@ export default class Sounds {
         })
 
         // Debug
-        if (this.debug) {
+        if(this.debug)
+        {
             const folder = this.debugFolder.addFolder('engine')
             folder.open()
 
@@ -293,7 +313,8 @@ export default class Sounds {
         }
     }
 
-    add(_options) {
+    add(_options)
+    {
         const item = {
             name: _options.name,
             minDelta: _options.minDelta,
@@ -307,7 +328,8 @@ export default class Sounds {
             sounds: []
         }
 
-        for (const _sound of _options.sounds) {
+        for(const _sound of _options.sounds)
+        {
             const sound = new Howl({ src: [_sound] })
 
             item.sounds.push(sound)
@@ -316,12 +338,14 @@ export default class Sounds {
         this.items.push(item)
     }
 
-    play(_name, _velocity) {
+    play(_name, _velocity)
+    {
         const item = this.items.find((_item) => _item.name === _name)
         const time = Date.now()
         const velocity = typeof _velocity === 'undefined' ? 0 : _velocity
 
-        if (item && time > item.lastTime + item.minDelta && (item.velocityMin === 0 || velocity > item.velocityMin)) {
+        if(item && time > item.lastTime + item.minDelta && (item.velocityMin === 0 || velocity > item.velocityMin))
+        {
             // Find random sound
             const sound = item.sounds[Math.floor(Math.random() * item.sounds.length)]
 

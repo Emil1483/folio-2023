@@ -23,8 +23,7 @@ export default class Physics {
         this.setCar()
 
         this.time.on('tick', () => {
-            const step = this.time.delta * 166 / 60000
-            this.world.step(step, step, 3)
+            this.world.step(1 / 60, this.time.delta, 3)
         })
     }
 
@@ -132,10 +131,10 @@ export default class Physics {
         this.car.options.controlsSteeringSpeed = 0.005
         this.car.options.controlsSteeringMax = Math.PI * 0.17
         this.car.options.controlsSteeringQuad = false
-        this.car.options.controlsAcceleratinMaxSpeed = 12
-        this.car.options.controlsAcceleratinMaxSpeedBoost = 24
-        this.car.options.controlsAcceleratingSpeed = 0.1 * 10
-        this.car.options.controlsAcceleratingSpeedBoost = 0.125 * 10
+        this.car.options.controlsAcceleratinMaxSpeed = 0.055
+        this.car.options.controlsAcceleratinMaxSpeedBoost = 0.11
+        this.car.options.controlsAcceleratingSpeed = 2
+        this.car.options.controlsAcceleratingSpeedBoost = 3.5
         this.car.options.controlsAcceleratingQuad = true
         this.car.options.controlsBrakeStrength = 0.45
 
@@ -327,13 +326,12 @@ export default class Physics {
          */
         this.world.addEventListener('postStep', () => {
             // Update speed
-            this.car.speed = this.car.vehicle.currentVehicleSpeedKmHour
-
             let positionDelta = new CANNON.Vec3()
             positionDelta = positionDelta.copy(this.car.chassis.body.position)
             positionDelta = positionDelta.vsub(this.car.oldPosition)
 
             this.car.oldPosition.copy(this.car.chassis.body.position)
+            this.car.speed = positionDelta.length()
 
             // Update forward
             const localForward = new CANNON.Vec3(1, 0, 0)
@@ -480,7 +478,7 @@ export default class Physics {
              * Accelerate
              */
             const accelerationSpeed = this.controls.actions.boost ? this.car.options.controlsAcceleratingSpeedBoost : this.car.options.controlsAcceleratingSpeed
-            const accelerateStrength = accelerationSpeed * this.car.options.chassisMass
+            const accelerateStrength = this.time.delta * accelerationSpeed
             const controlsAcceleratinMaxSpeed = this.controls.actions.boost ? this.car.options.controlsAcceleratinMaxSpeedBoost : this.car.options.controlsAcceleratinMaxSpeed
 
             // Accelerate up
@@ -495,7 +493,7 @@ export default class Physics {
 
             // Accelerate Down
             else if (this.controls.actions.down) {
-                if (this.car.speed > -controlsAcceleratinMaxSpeed || this.car.goingForward) {
+                if (this.car.speed < controlsAcceleratinMaxSpeed || this.car.goingForward) {
                     this.car.accelerating = - accelerateStrength
                 }
                 else {

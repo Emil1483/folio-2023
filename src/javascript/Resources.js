@@ -73,15 +73,6 @@ import crossroadsStaticFloorShadowSource from '../models/crossroads/static/floor
 import crossroadsStaticBaseSource from '../models/crossroads/static/base.glb'
 import crossroadsStaticCollisionSource from '../models/crossroads/static/collision.glb'
 
-// Car default
-import carDefaultChassisSource from '../models/car/default/chassis.glb'
-import carDefaultWheelSource from '../models/car/default/wheel.glb'
-import carDefaultBackLightsBrakeSource from '../models/car/default/backLightsBrake.glb'
-import carDefaultBackLightsReverseSource from '../models/car/default/backLightsReverse.glb'
-import carDefaultAntenaSource from '../models/car/default/antena.glb'
-// import carDefaultBunnyEarLeftSource from '../models/car/default/bunnyEarLeft.glb'
-// import carDefaultBunnyEarRightSource from '../models/car/default/bunnyEarRight.glb'
-
 // Car cyber truck
 import carCyberTruckChassisSource from '../models/car/cyberTruck/chassis.glb'
 import carCyberTruckWheelSource from '../models/car/cyberTruck/wheel.glb'
@@ -295,16 +286,7 @@ export default class Resources extends EventEmitter {
             { name: 'crossroadsStaticCollision', source: crossroadsStaticCollisionSource },
             { name: 'crossroadsStaticFloorShadow', source: crossroadsStaticFloorShadowSource, type: 'texture' },
 
-            // Car default
-            { name: 'carDefaultChassis', source: carDefaultChassisSource },
-            { name: 'carDefaultWheel', source: carDefaultWheelSource },
-            { name: 'carDefaultBackLightsBrake', source: carDefaultBackLightsBrakeSource },
-            { name: 'carDefaultBackLightsReverse', source: carDefaultBackLightsReverseSource },
-            { name: 'carDefaultAntena', source: carDefaultAntenaSource },
-            // { name: 'carDefaultBunnyEarLeft', source: carDefaultBunnyEarLeftSource },
-            // { name: 'carDefaultBunnyEarRight', source: carDefaultBunnyEarRightSource },
-
-            // Car default
+            // Car CyberTruck
             { name: 'carCyberTruckChassis', source: carCyberTruckChassisSource },
             { name: 'carCyberTruckWheel', source: carCyberTruckWheelSource },
             { name: 'carCyberTruckBackLightsBrake', source: carCyberTruckBackLightsBrakeSource },

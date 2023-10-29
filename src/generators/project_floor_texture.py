@@ -112,3 +112,17 @@ if __name__ == "__main__":
         role="Full-Stack Developer",
         at="yamuntu",
     )
+    generate_texture(
+        path="../models/projects/clever",
+        title="Clever",
+        body="Clever.fm brings all your interactions with the community and content into one place. Here you can have discussions at specific points in the episode, click on the smart note to read the article the host mentioned or buy a book and merchandise directly from the app.",
+        role="Mobile Developer",
+        at="Sekimo Sistemos",
+    )
+    generate_texture(
+        path="../models/projects/alarm",
+        title="Custom Alarm",
+        body="This alarm automatically checks the school's system for when school starts, and wakes me up accordingly such that I always have enough time to get to school promptly.\nAccompanying the alarm is a mobile app in which I can adjust the time it takes from I am out of bed to I arrive at my school's premises as well as to see and adjust when school starts. This is also where I test and stop the alarm.",
+        role="Lead Developer",
+        at="Djupvik Technology",
+    )

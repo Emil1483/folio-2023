@@ -93,18 +93,11 @@ import projectsDistinctionsFWACollisionSource from '../models/projects/distincti
 import projectsDistinctionsCSSDABaseSource from '../models/projects/distinctions/cssda/base.glb'
 import projectsDistinctionsCSSDACollisionSource from '../models/projects/distinctions/cssda/collision.glb'
 
-import projectsMadboxFloorSource from '../models/projects/madbox/floorTexture.png'
-import projectsScoutFloorSource from '../models/projects/scout/floorTexture.png'
-import projectsChartogneFloorSource from '../models/projects/chartogne/floorTexture.png'
-import projectsZenlyFloorSource from '../models/projects/zenly/floorTexture.png'
-import projectsCitrixRedbullFloorSource from '../models/projects/citrixRedbull/floorTexture.png'
-import projectsPriorHoldingsFloorSource from '../models/projects/priorHoldings/floorTexture.png'
-import projectsOranoFloorSource from '../models/projects/orano/floorTexture.png'
-// import projectsGleecChatFloorSource from '../models/projects/gleecChat/floorTexture.png'
-import projectsKepplerFloorSource from '../models/projects/keppler/floorTexture.png'
 import projectsOppkjoringFloorSource from '../models/projects/oppkjoring/floorTexture.png'
 import projectsTingsFloorSource from '../models/projects/tings/floorTexture.png'
 import projectsYamuntuFloorSource from '../models/projects/yamuntu/floorTexture.png'
+import projectsCleverFloorSource from '../models/projects/clever/floorTexture.png'
+import projectsAlarmFloorSource from '../models/projects/alarm/floorTexture.png'
 
 // Information
 import informationStaticBaseSource from '../models/information/static/base.glb'
@@ -308,18 +301,11 @@ export default class Resources extends EventEmitter {
             { name: 'projectsDistinctionsCSSDABase', source: projectsDistinctionsCSSDABaseSource },
             { name: 'projectsDistinctionsCSSDACollision', source: projectsDistinctionsCSSDACollisionSource },
 
-            { name: 'projectsMadboxFloor', source: projectsMadboxFloorSource, type: 'texture' },
-            { name: 'projectsScoutFloor', source: projectsScoutFloorSource, type: 'texture' },
-            { name: 'projectsChartogneFloor', source: projectsChartogneFloorSource, type: 'texture' },
-            { name: 'projectsZenlyFloor', source: projectsZenlyFloorSource, type: 'texture' },
-            { name: 'projectsCitrixRedbullFloor', source: projectsCitrixRedbullFloorSource, type: 'texture' },
-            { name: 'projectsPriorHoldingsFloor', source: projectsPriorHoldingsFloorSource, type: 'texture' },
-            { name: 'projectsOranoFloor', source: projectsOranoFloorSource, type: 'texture' },
-            // { name: 'projectsGleecChatFloor', source: projectsGleecChatFloorSource, type: 'texture' },
-            { name: 'projectsKepplerFloor', source: projectsKepplerFloorSource, type: 'texture' },
             { name: 'projectsOppkjoringFloor', source: projectsOppkjoringFloorSource, type: 'texture' },
             { name: 'projectsTingsFloor', source: projectsTingsFloorSource, type: 'texture' },
             { name: 'projectsYamuntuFloor', source: projectsYamuntuFloorSource, type: 'texture' },
+            { name: 'projectsCleverFloor', source: projectsCleverFloorSource, type: 'texture' },
+            { name: 'projectsAlarmFloor', source: projectsAlarmFloorSource, type: 'texture' },
 
             // Information
             { name: 'informationStaticBase', source: informationStaticBaseSource },

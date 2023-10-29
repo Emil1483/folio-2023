@@ -22,6 +22,7 @@ export default class Project {
         this.floorTexture = _options.floorTexture
         this.link = _options.link
         this.distinctions = _options.distinctions
+        this.widthOffset = _options.widthOffset
 
         // Set up
         this.container = new THREE.Object3D()

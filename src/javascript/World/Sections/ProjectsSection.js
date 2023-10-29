@@ -121,13 +121,14 @@ export default class ProjectsSection {
                 {
                     href: 'https://www.oppkjoring.com/',
                     x: - 4.8,
-                    y: - 6,
+                    y: - 4.5,
                     halfExtents:
                     {
                         x: 3.2,
                         y: 1.5
                     }
                 },
+                widthOffset: -5,
             },
             {
                 name: 'Tings',
@@ -141,13 +142,14 @@ export default class ProjectsSection {
                 {
                     href: 'https://www.tings.com/',
                     x: - 4.8,
-                    y: - 4,
+                    y: - 2,
                     halfExtents:
                     {
                         x: 3.2,
                         y: 1.5
                     }
                 },
+                widthOffset: -5,
             },
             {
                 name: 'yamuntu',
@@ -161,13 +163,14 @@ export default class ProjectsSection {
                 {
                     href: 'https://www.yamuntu.com/',
                     x: - 4.8,
-                    y: - 3,
+                    y: - 2.5,
                     halfExtents:
                     {
                         x: 3.2,
                         y: 1.5
                     }
                 },
+                widthOffset: -5,
             },
             {
                 name: 'Madbox',
@@ -430,15 +433,23 @@ export default class ProjectsSection {
     }
 
     add(_options) {
-        const x = this.x + this.items.length * this.interDistance
+        let totalWidthOffset = 0
+        for (const project of this.items) {
+            totalWidthOffset += project.widthOffset
+        }
+
+        const x = this.x + this.items.length * this.interDistance + totalWidthOffset
         let y = this.y
         if (this.items.length > 0) {
             y += (Math.random() - 0.5) * this.positionRandomess
         }
 
+        const widthOffset = _options.widthOffset || 0
+
         // Create project
         const project = new Project({
             time: this.time,
+            widthOffset: widthOffset,
             resources: this.resources,
             objects: this.objects,
             areas: this.areas,
@@ -455,7 +466,7 @@ export default class ProjectsSection {
         // Add tiles
         if (this.items.length >= 1) {
             const previousProject = this.items[this.items.length - 1]
-            const start = new THREE.Vector2(previousProject.x + this.projectHalfWidth, previousProject.y)
+            const start = new THREE.Vector2(previousProject.x + this.projectHalfWidth + previousProject.widthOffset, previousProject.y)
             const end = new THREE.Vector2(project.x - this.projectHalfWidth, project.y)
             const delta = end.clone().sub(start)
             this.tiles.add({

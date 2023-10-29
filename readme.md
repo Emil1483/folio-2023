@@ -1,10 +1,11 @@
-# Folio 2019
+# Folio 2023
 
 ## Setup
+
 Download [Node.js](https://nodejs.org/en/download/).
 Run this followed commands:
 
-``` bash
+```bash
 # Just be sure that you've got parcel js on you system
 npm install -g parcel-bundler
 
@@ -16,8 +17,4 @@ npm run dev
 
 # Build for production in the dist/ directory
 npm run build
-```
-
-```
-🥚 2021eggpvlzscw
 ```

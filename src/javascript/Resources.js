@@ -103,6 +103,7 @@ import projectsOranoFloorSource from '../models/projects/orano/floorTexture.png'
 // import projectsGleecChatFloorSource from '../models/projects/gleecChat/floorTexture.png'
 import projectsKepplerFloorSource from '../models/projects/keppler/floorTexture.png'
 import projectsOppkjoringFloorSource from '../models/projects/oppkjoring/floorTexture.png'
+import projectsTingsFloorSource from '../models/projects/tings/floorTexture.png'
 
 // Information
 import informationStaticBaseSource from '../models/information/static/base.glb'
@@ -316,6 +317,7 @@ export default class Resources extends EventEmitter {
             // { name: 'projectsGleecChatFloor', source: projectsGleecChatFloorSource, type: 'texture' },
             { name: 'projectsKepplerFloor', source: projectsKepplerFloorSource, type: 'texture' },
             { name: 'projectsOppkjoringFloor', source: projectsOppkjoringFloorSource, type: 'texture' },
+            { name: 'projectsTingsFloor', source: projectsTingsFloorSource, type: 'texture' },
 
             // Information
             { name: 'informationStaticBase', source: informationStaticBaseSource },

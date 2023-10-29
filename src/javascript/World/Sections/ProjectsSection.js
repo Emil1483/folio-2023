@@ -8,6 +8,9 @@ import projectsOppkjoringSlideBSources from '../../../models/projects/oppkjoring
 import projectsTingsSlideASources from '../../../models/projects/tings/slideA.jpg'
 import projectsTingsSlideBSources from '../../../models/projects/tings/slideB.jpg'
 
+import projectsYamuntuSlideASources from '../../../models/projects/yamuntu/slideA.jpg'
+import projectsYamuntuSlideBSources from '../../../models/projects/yamuntu/slideB.jpg'
+
 import projectsMadboxSlideASources from '../../../models/projects/madbox/slideA.jpg'
 import projectsMadboxSlideBSources from '../../../models/projects/madbox/slideB.jpg'
 import projectsMadboxSlideCSources from '../../../models/projects/madbox/slideC.jpg'
@@ -139,6 +142,26 @@ export default class ProjectsSection {
                     href: 'https://www.tings.com/',
                     x: - 4.8,
                     y: - 4,
+                    halfExtents:
+                    {
+                        x: 3.2,
+                        y: 1.5
+                    }
+                },
+            },
+            {
+                name: 'yamuntu',
+                imageSources:
+                    [
+                        projectsYamuntuSlideASources,
+                        projectsYamuntuSlideBSources,
+                    ],
+                floorTexture: this.resources.items.projectsYamuntuFloorTexture,
+                link:
+                {
+                    href: 'https://www.yamuntu.com/',
+                    x: - 4.8,
+                    y: - 3,
                     halfExtents:
                     {
                         x: 3.2,

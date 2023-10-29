@@ -193,16 +193,6 @@ import tilesECollisionSource from '../models/tiles/e/collision.glb'
 import konamiLabelSource from '../models/konami/label.png'
 import konamiLabelTouchSource from '../models/konami/label-touch.png'
 
-// Wigs
-import wig1Source from '../models/wigs/wig1.glb'
-import wig2Source from '../models/wigs/wig2.glb'
-import wig3Source from '../models/wigs/wig3.glb'
-import wig4Source from '../models/wigs/wig4.glb'
-
-// // Egg
-// import eggBaseSource from '../models/egg/base.glb'
-// import eggCollisionSource from '../models/egg/collision.glb'
-
 export default class Resources extends EventEmitter {
     constructor() {
         super()
@@ -400,12 +390,6 @@ export default class Resources extends EventEmitter {
             // Konami
             { name: 'konamiLabel', source: konamiLabelSource, type: 'texture' },
             { name: 'konamiLabelTouch', source: konamiLabelTouchSource, type: 'texture' },
-
-            // Wigs
-            { name: 'wig1', source: wig1Source },
-            { name: 'wig2', source: wig2Source },
-            { name: 'wig3', source: wig3Source },
-            { name: 'wig4', source: wig4Source },
 
             // // Egg
             // { name: 'eggBase', source: eggBaseSource },
